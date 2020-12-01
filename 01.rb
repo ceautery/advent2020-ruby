@@ -1,13 +1,15 @@
 $nums = open('inputs/01.txt').readlines.map(&:to_i)
 
+def reducer arr, goal, parts_count
+  arr.combination(parts_count).find { |set| set.sum == goal }.reduce(:*)
+end
+
 def part1
-  pair = $nums.combination(2).find { |p| p.sum == 2020 }
-  pair.reduce(:*)
+  reducer $nums, 2020, 2
 end
 
 def part2
-  pair = $nums.combination(3).find { |p| p.sum == 2020 }
-  pair.reduce(:*)
+  reducer $nums, 2020, 3
 end
 
 puts part1
