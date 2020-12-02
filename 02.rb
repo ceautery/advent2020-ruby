@@ -9,7 +9,7 @@ end
 def valid_p1 line
   min, max, char, psw = fields line
   count = psw.count char
-  count >= min && count <= max
+  count.between? min, max
 end
 
 def valid_p2 line
